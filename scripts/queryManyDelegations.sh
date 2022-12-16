@@ -27,11 +27,11 @@ elif [[ $hostzone == 'osmosis' ]]; then
         API=$OSMOSIS_API
         ADDRESS=$OSMOSIS_Delegator_address
 elif [[ $hostzone == 'stargaze' ]]; then
-        API=STARGAZE_API
+        API=$STARGAZE_API
         ADDRESS=$STARGAZE_Delegator_address
 fi
 
 for height in `seq $firstblock $step $lastblock `;
 do
-        curl -H "x-cosmos-block-height: $height" $API/cosmos/staking/v1beta1/delegations/$ADDRESS -o $hostzone/a-$hostzone-$height.json
+        curl -H "x-cosmos-block-height: $height" $API/cosmos/staking/v1beta1/delegations/$ADDRESS -o $hostzone/$hostzone-$height.json
 done

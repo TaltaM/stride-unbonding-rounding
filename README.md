@@ -4,14 +4,14 @@
 
 | HostZone | date | nr | expected amount | requested amount | unbonded amount | difference | block height | status |
 | --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- |
-| cosmos | 20221212 | 01 | 1388465824 | 1388465824 | **1315585122** | **-72880702** | 13222069 | Diff matches 'undelegated balance': Note 1 |
-| juno | 20221208 | 01 | 28555221161 | 28555221161 | 28555221161 | 0 | 6021887 | UndelegationOK |
-| juno | 20221212 | 01 | 264800261 | 264800261 | 264800261 | 0 | 6078947 | UndelegationOK |
-| osmosis | 20221208 | 01 | 4889402 | 4889402 | **6359469089** | **-6359469089** | 7244300-7244400 | Diff matches 'undelegated balance': Note 2 |
-| osmosis | 20221214 | 01 | 2203354 | 2203354 | x | x | 7333600+ |  |
-| stargaze | 20221208 | 01 | 4298398525 | 4298398525 | x | x | x |  |
-| stargaze | 20221208 | 02 | 45757447978 | 45757447978 | x | x | x |  |
-| stargaze | 20221214 | 01 | 45757447978 | 45757447978 | x | x | x |  |
+| cosmos | 20221212 | 01 | -1388465824 | -1388465824 | -1315585122 | **72880702** | 13222069 | Diff matches 'undelegated balance': Note 1 |
+| juno | 20221208 | 01 | -28555221161 | -28555221161 | -28555221161 | 0 | 6021887 | UndelegationOK |
+| juno | 20221212 | 01 | -264800261 | -264800261 | -264800261 | 0 | 6078947 | UndelegationOK |
+| osmosis | 20221208 | 01 | -4889402 | -4889402 | 6354579687 | **-6359469089** | 7244300-7244400 | Sum matches 'undelegated balance': Note 2 |
+| osmosis | 20221214 | 01 | -2203354 | -2203354 | -2203354 | 0 | 7333696 | UndelegationOK |
+| stargaze | 20221208 | 01 | -4298398525 | -4298398525 | x | x | x |  |
+| stargaze | 20221208 | 02 | -45757447978 | -45757447978 | x | x | x |  |
+| stargaze | 20221214 | 01 | -45757447978 | -45757447978 | x | x | x |  |
 
 ### Notes
 
@@ -21,10 +21,25 @@ Note 1:
 7:00PM INF |   COSMOSHUB-4   |  New Redemption Rate: 1.048157103025075365 (vs Prev Rate: 1.048009253412448267) module=x/stakeibc
 ```
 
+```
+$ ./scripts/calcDelegationsDifferences.sh cosmos 13222067 1 13222069
+hostZone,startHeight,endHeight,startBalance,endBalance,diff
+cosmos,0,13222067,0,464919274665,464919274665
+cosmos,13222068,13222069,464919274665,463603689543,-1315585122```
+
 Note 2:
 ```
 7:00PM INF |   OSMOSIS-1     |  Redemption Rate Components - Undelegated Balance: 6359469089, Staked Balance: 1222475550003, Module Account Balance: 176499000, stToken Supply: 1205432980482 module=x/stakeibc
 7:00PM INF |   OSMOSIS-1     |  New Redemption Rate: 1.019560222751307147 (vs Prev Rate: 1.019560050198398924) module=x/stakeibc
+```
+
+```
+$ ./scripts/calcDelegationsDifferences.sh osmosis 7240000 100 7250000
+hostZone,startHeight,endHeight,startBalance,endBalance,diff
+osmosis,0,7240000,0,1215420987179,1215420987179
+osmosis,7240900,7241000,1215420987179,1222475550003,7054562824
+osmosis,7244300,7244400,1222475550003,1228830129690,6354579687
+osmosis,7248000,7248100,1228830129690,1229006628690,176499000
 ```
 
 ## Flow
