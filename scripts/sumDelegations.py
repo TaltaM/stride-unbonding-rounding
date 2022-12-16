@@ -10,9 +10,12 @@ def main(args):
     except IndexError:
         return False
     amount = 0
-    for i in data['delegation_responses']:
-        amount += int(i['balance']['amount'])
-    print(amount)
+    try:
+        for i in data['delegation_responses']:
+            amount += int(i['balance']['amount'])
+        print(amount, end='')
+    except KeyError:
+        print("uhoh: " + args[1])
     return True
 
 if __name__ == "__main__":
