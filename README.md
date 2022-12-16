@@ -4,18 +4,24 @@
 
 | HostZone | date | expected amount | requested amount | unbonded amount | difference | block height | status |
 | --- | --- | ---: | ---: | ---: | ---: | --- | --- |
-| cosmos | 20221208 | -192133500 | -192133500 | x | x | 13154000+ |  |
-| cosmos | 20221212 | -1388465824 | -1388465824 | -1315585122 | **72880702** | 13222069 | Diff matches 'undelegated balance': Note 1 |
+| cosmos | 20221208 | -192133500 | -192133500 | 213803344 | -405936844 | 13167652 | Diff matches 'undelegated balance': Note 1 |
+| cosmos | 20221212 | -1388465824 | -1388465824 | -1315585122 | **72880702** | 13222069 | Diff matches 'undelegated balance': Note 2 |
 | juno | 20221208 | -28555221161 | -28555221161 | -28555221161 | 0 | 6021887 | UndelegationOK |
 | juno | 20221212 | -264800261 | -264800261 | -264800261 | 0 | 6078947 | UndelegationOK |
-| osmosis | 20221208 | -4889402 | -4889402 | 6354579687 | **-6359469089** | 7244300-7244400 | Sum matches 'undelegated balance': Note 2 |
+| osmosis | 20221208 | -4889402 | -4889402 | 6354579687 | **-6359469089** | 7244300-7244400 | Sum matches 'undelegated balance': Note 3 |
 | osmosis | 20221214 | -2203354 | -2203354 | -2203354 | 0 | 7333696 | UndelegationOK |
 | stargaze | 20221208 | -4298398525 | -4298398525 | -4298398525 | 0 | 5913787 | UndelegationOK |
-| stargaze | 20221214 | -45757447978 | -45757447978 | -45757447978 | 0 | UndelegationOK |  |
+| stargaze | 20221214 | -45757447978 | -45757447978 | -45757447978 | 0 | 6001449 | UndelegationOK |
 
 ### Notes
 
-Note 1: 
+Note 1:
+```
+7:00PM INF |   COSMOSHUB-4   |  Redemption Rate Components - Undelegated Balance: 405936844, Staked Balance: 452363989253, Module Account Balance: 882414920, stToken Supply: 433777343786 module=x/stakeibc
+7:00PM INF |   COSMOSHUB-4   |  New Redemption Rate: 1.045818430851024677 (vs Prev Rate: 1.045673188507762325) module=x/stakeibc
+```
+
+Note 2: 
 ```
 7:00PM INF |   COSMOSHUB-4   |  Redemption Rate Components - Undelegated Balance: 72880702, Staked Balance: 464919274656, Module Account Balance: 231403090, stToken Supply: 443849072916 module=x/stakeibc
 7:00PM INF |   COSMOSHUB-4   |  New Redemption Rate: 1.048157103025075365 (vs Prev Rate: 1.048009253412448267) module=x/stakeibc
@@ -27,7 +33,7 @@ hostZone,startHeight,endHeight,startBalance,endBalance,diff
 cosmos,0,13222067,0,464919274665,464919274665
 cosmos,13222068,13222069,464919274665,463603689543,-1315585122```
 
-Note 2:
+Note 3:
 ```
 7:00PM INF |   OSMOSIS-1     |  Redemption Rate Components - Undelegated Balance: 6359469089, Staked Balance: 1222475550003, Module Account Balance: 176499000, stToken Supply: 1205432980482 module=x/stakeibc
 7:00PM INF |   OSMOSIS-1     |  New Redemption Rate: 1.019560222751307147 (vs Prev Rate: 1.019560050198398924) module=x/stakeibc
