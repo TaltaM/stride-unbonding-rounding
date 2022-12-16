@@ -2,16 +2,16 @@
 
 ## Results
 
-| HostZone | date | nr | expected amount | requested amount | unbonded amount | difference | block height | status |
-| --- | --- | --- | ---: | ---: | ---: | ---: | --- | --- |
-| cosmos | 20221212 | 01 | -1388465824 | -1388465824 | -1315585122 | **72880702** | 13222069 | Diff matches 'undelegated balance': Note 1 |
-| juno | 20221208 | 01 | -28555221161 | -28555221161 | -28555221161 | 0 | 6021887 | UndelegationOK |
-| juno | 20221212 | 01 | -264800261 | -264800261 | -264800261 | 0 | 6078947 | UndelegationOK |
-| osmosis | 20221208 | 01 | -4889402 | -4889402 | 6354579687 | **-6359469089** | 7244300-7244400 | Sum matches 'undelegated balance': Note 2 |
-| osmosis | 20221214 | 01 | -2203354 | -2203354 | -2203354 | 0 | 7333696 | UndelegationOK |
-| stargaze | 20221208 | 01 | -4298398525 | -4298398525 | x | x | x |  |
-| stargaze | 20221208 | 02 | -45757447978 | -45757447978 | x | x | x |  |
-| stargaze | 20221214 | 01 | -45757447978 | -45757447978 | x | x | x |  |
+| HostZone | date | expected amount | requested amount | unbonded amount | difference | block height | status |
+| --- | --- | ---: | ---: | ---: | ---: | --- | --- |
+| cosmos | 20221208 | -192133500 | -192133500 | x | x | 13154000+ |  |
+| cosmos | 20221212 | -1388465824 | -1388465824 | -1315585122 | **72880702** | 13222069 | Diff matches 'undelegated balance': Note 1 |
+| juno | 20221208 | -28555221161 | -28555221161 | -28555221161 | 0 | 6021887 | UndelegationOK |
+| juno | 20221212 | -264800261 | -264800261 | -264800261 | 0 | 6078947 | UndelegationOK |
+| osmosis | 20221208 | -4889402 | -4889402 | 6354579687 | **-6359469089** | 7244300-7244400 | Sum matches 'undelegated balance': Note 2 |
+| osmosis | 20221214 | -2203354 | -2203354 | -2203354 | 0 | 7333696 | UndelegationOK |
+| stargaze | 20221208 | -4298398525 | -4298398525 | -4298398525 | 0 | 5913787 | UndelegationOK |
+| stargaze | 20221214 | -45757447978 | -45757447978 | -45757447978 | 0 | UndelegationOK |  |
 
 ### Notes
 
@@ -46,14 +46,14 @@ osmosis,7248000,7248100,1228830129690,1229006628690,176499000
 
 1. Isolate unbonding related lines from `epoch_$date_$time.log`:
    - Find line containing 'Total unbonded amount' and copy related lines
-     to `logs/unbondings-$date-$nr.log`.
+     to `logs/unbondings-$date.log`.
    - Add first and last found `Block Time` timestamps taken from the log
      file to the new file for reference
    - Convert timestamps to datetime e.g. by entering first 10 digits at: https://www.unixtimestamp.com/
    - Look up block height estimations in host zone explorer.
 2. Check if the numbers reported by the new log file show that the amounts of unbonding
    requests match the expected unbonding amount :
-   - Run `diffUnbondedAmount.sh logs/unbondings-$hostzone-$date-$nr.log`
+   - Run `diffUnbondedAmount.sh logs/unbondings-$hostzone-$date.log`
 3. Download balance records for delegators at their host zones with `queryManyDelegations.sh`.
    This script needs as input: host zone, first block height, block height step size and last block height.
 4. Check if the delegator's balance decreased anywhere in the period. Note that the differenes can be
@@ -69,7 +69,7 @@ osmosis,7248000,7248100,1228830129690,1229006628690,176499000
    - Block Time: 1670871584274751011 (Mon Dec 12 2022 18:59:44 GMT+0000)
      Block Time: 1670861233737979333 (Mon Dec 12 2022 16:07:13 GMT+0000)
    - Ballpark block height: 6070000
-2. - Run: `./scripts/diffUnbondedAmount.sh logs/unbondings-juno-20221212-01.log`:
+2. - Run: `./scripts/diffUnbondedAmount.sh logs/unbondings-juno-20221212.log`:
 ```
 $ ./scripts/diffUnbondedAmount.sh ../logs/unbondings-20221212-02.log
 Requested amount: 264800261
