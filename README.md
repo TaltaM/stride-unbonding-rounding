@@ -1,5 +1,12 @@
 # Verify unbonded amounts
 
+## Results
+
+| HostZone | date | nr | expected amount | found amount | block height | status |
+| --- | --- | --- | ---: | ---: | --- | --- |
+| juno | 20221208 | 01 | 28555221161 | 28555221161 | 6021887 | UndelegationOK |
+| juno | 20221212 | 01 | 264800261 | 264800261 |6078947 | UndelegationOK |
+
 ## Flow
 
 1. Isolate unbonding related lines from `epoch_$date_$time.log`:
@@ -11,7 +18,7 @@
    - Look up block height estimations in host zone explorer.
 2. Check if the numbers reported by the new log file show that the amounts of unbonding
    requests match the expected unbonding amount :
-   - Run `cd scripts && diffUnbondedAmount.sh ../logs/unbondings-$date-$nr.log`
+   - Run `diffUnbondedAmount.sh logs/unbondings-$hostzone-$date-$nr.log`
 3. Download balance records for delegators at their host zones with `queryManyDelegations.sh`.
    This script needs as input: host zone, first block height, block height step size and last block height.
 4. Check if the delegator's balance decreased anywhere in the period. Note that the differenes can be
@@ -27,15 +34,15 @@
    - Block Time: 1670871584274751011 (Mon Dec 12 2022 18:59:44 GMT+0000)
      Block Time: 1670861233737979333 (Mon Dec 12 2022 16:07:13 GMT+0000)
    - Ballpark block height: 6070000
-2. - Run: `cd scripts && ./diffUnbondedAmount.sh ../logs/unbondings-20221212-02.log && cd ..`:
+2. - Run: `./scripts/diffUnbondedAmount.sh logs/unbondings-juno-20221212-01.log`:
 ```
-$ cd scripts && ./diffUnbondedAmount.sh ../logs/unbondings-20221212-02.log && cd ..
+$ ./scripts/diffUnbondedAmount.sh ../logs/unbondings-20221212-02.log
 Requested amount: 264800261
 Expected amount: 264800261
 Diff: 0
 ```
 3. `$ ./scripts/queryManyDelegations.sh juno 6000000 1000 6110000`
-4. `$ cd scripts && ./calcDelegationsDifferences.sh juno 6000000 1000 6110000 && cd ..`
+4. `$ ./scripts/calcDelegationsDifferences.sh juno 6000000 1000 6110000`
 output:
 ```
 hostZone,startHeight,endHeight,startBalance,endBalance,diff
@@ -45,7 +52,7 @@ juno,6078000,6079000,108822626929,108615975497,-206651432
 5. 6021000 is a bit early, so:
 ```
 ./scripts/queryManyDelegations.sh juno 6078000 200 6079000
-cd scripts && ./calcDelegationsDifferences.sh juno 6078000 200 6079000 && cd ..
+./scripts/calcDelegationsDifferences.sh juno 6078000 200 6079000 
 ```
 output:
 ```
@@ -56,7 +63,7 @@ juno,6078800,6079000,108822626929,108615975497,-206651432
 Again:
 ```
 ./scripts/queryManyDelegations.sh juno 6078800 1 6079000
-cd scripts && ./calcDelegationsDifferences.sh juno 6078800 1 6079000 && cd ..
+./scripts/calcDelegationsDifferences.sh juno 6078800 1 6079000
 ```
 output:
 ```

@@ -10,7 +10,7 @@ prevHeight=0
 printf 'hostZone,startHeight,endHeight,startBalance,endBalance,diff\n'
 for height in `seq $firstblock $step $lastblock `;
 do
-    newSum=`./sumDelegations.py ../$hostzone/$hostzone-$height.json`
+    newSum=`./scripts/sumDelegations.py $hostzone/$hostzone-$height.json`
     diff=$(( $newSum - $prevSum ))
     if [[ $diff -lt 0 ]]; then
         printf '%s,%d,%d,%d,%d,%d\n' $hostzone $prevHeight $height $prevSum $newSum $diff

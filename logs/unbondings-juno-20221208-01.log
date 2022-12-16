@@ -30,3 +30,8 @@
 7:00PM INF |   JUNO-1        |      Msg: delegator_address:"juno1zjpfewdsdykrgce8d20lfanhh6evufxeyya4fyepjs9lh57tv3jqrutwt0" validator_address:"junovaloper1xwazl8ftks4gn00y5x3c47auquc62ssuvynw64" amount:<denom:"ujuno" amount:"524361623" >  module=x/stakeibc
 7:00PM INF |   JUNO-1        |      Msg: delegator_address:"juno1zjpfewdsdykrgce8d20lfanhh6evufxeyya4fyepjs9lh57tv3jqrutwt0" validator_address:"junovaloper1y0us8xvsvfvqkk9c6nt5cfyu5au5tww2wsdcwk" amount:<denom:"ujuno" amount:"1688105761" >  module=x/stakeibc
 7:00PM INF |   JUNO-1        |      Msg: delegator_address:"juno1zjpfewdsdykrgce8d20lfanhh6evufxeyya4fyepjs9lh57tv3jqrutwt0" validator_address:"junovaloper1yy3tnegzmkdcm7czzcy3flw5z0zyr9vkkxrfse" amount:<denom:"ujuno" amount:"800348940" >  module=x/stakeibc
+
+Block Time: 1670525906216436246
+Block Time: 1670519624784555705
+block height=1381635
+block height=1381833

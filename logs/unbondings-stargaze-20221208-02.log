@@ -30,3 +30,8 @@
 7:00PM INF |   STARGAZE-1    |      Msg: delegator_address:"stars1rfxv568skvtncxfl28s25scg87es4ez2w8q32z727mvtxgjmexuqc246ra" validator_address:"starsvaloper1y3cxrze7kmktj93atd42g9rffyg823g0qjqelc" amount:<denom:"ustars" amount:"166714795" >  module=x/stakeibc
 7:00PM INF |   STARGAZE-1    |      Msg: delegator_address:"stars1rfxv568skvtncxfl28s25scg87es4ez2w8q32z727mvtxgjmexuqc246ra" validator_address:"starsvaloper1y58hfnm90r4efhlydx0gavz57lvm7k6uulkg3h" amount:<denom:"ustars" amount:"115020285" >  module=x/stakeibc
 7:00PM INF |   STARGAZE-1    |      Msg: delegator_address:"stars1rfxv568skvtncxfl28s25scg87es4ez2w8q32z727mvtxgjmexuqc246ra" validator_address:"starsvaloper1yskcx5zfkr3nacn6f5zd08yw72zwm4s06x8tpz" amount:<denom:"ustars" amount:"99942719" >  module=x/stakeibc
+
+Block Time: 1670525906216436246
+Block Time: 1670519624784555705
+block height=1381635
+block height=1381833

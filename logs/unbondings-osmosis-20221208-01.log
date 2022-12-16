@@ -30,3 +30,8 @@
 7:00PM INF |   OSMOSIS-1     |      Msg: delegator_address:"osmo1npfl4vmmmf4yqhcemz95mvqujgdnlhrlxfzhlhz2gru8g2t749xqr9zm5e" validator_address:"osmovaloper1x20lytyf6zkcrv5edpkfkn8sz578qg5s833swz" amount:<denom:"uosmo" amount:"71471" >  module=x/stakeibc
 7:00PM INF |   OSMOSIS-1     |      Msg: delegator_address:"osmo1npfl4vmmmf4yqhcemz95mvqujgdnlhrlxfzhlhz2gru8g2t749xqr9zm5e" validator_address:"osmovaloper1z89utvygweg5l56fsk8ak7t6hh88fd0axx2fya" amount:<denom:"uosmo" amount:"202664" >  module=x/stakeibc
 7:00PM INF |   OSMOSIS-1     |      Msg: delegator_address:"osmo1npfl4vmmmf4yqhcemz95mvqujgdnlhrlxfzhlhz2gru8g2t749xqr9zm5e" validator_address:"osmovaloper1zlymlax05tg9km9jyw496jx60v86m454a3xf3m" amount:<denom:"uosmo" amount:"129235" >  module=x/stakeibc
+
+Block Time: 1670525906216436246
+Block Time: 1670519624784555705
+block height=1381635
+block height=1381833
