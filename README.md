@@ -31,7 +31,8 @@ Note 2:
 $ ./scripts/calcDelegationsDifferences.sh cosmos 13222067 1 13222069
 hostZone,startHeight,endHeight,startBalance,endBalance,diff
 cosmos,0,13222067,0,464919274665,464919274665
-cosmos,13222068,13222069,464919274665,463603689543,-1315585122```
+cosmos,13222068,13222069,464919274665,463603689543,-1315585122
+```
 
 Note 3:
 ```
